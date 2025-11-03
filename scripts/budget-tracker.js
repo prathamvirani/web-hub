@@ -123,7 +123,6 @@ class BudgetTracker {
     }
 
     showNotification(message, type) {
-        // Simple notification - could be enhanced with a proper notification system
         const notification = document.createElement('div');
         notification.textContent = message;
         notification.style.cssText = `
