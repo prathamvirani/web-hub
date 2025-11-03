@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker - Web Hub</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/microsite.css">
+</head>
+<body>
+    <div class="microsite-container">
+        <header class="microsite-header">
+            <a href="../index.html" class="back-button">
+                <span>←</span>
+                <span>Back to Hub</span>
+            </a>
+            <h1 class="microsite-title">💰 Budget Tracker</h1>
+            <div style="width: 140px;"></div>
+        </header>
+
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="summary-label">Total Budget</div>
+                <div class="summary-value" id="totalBudget">$0</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Total Spent</div>
+                <div class="summary-value" style="color: var(--danger-color);" id="totalSpent">$0</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Remaining</div>
+                <div class="summary-value" style="color: var(--success-color);" id="remaining">$0</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="margin-bottom: 1.5rem;">Set Your Budget</h2>
+            <form id="budgetForm">
+                <div class="form-group">
+                    <label for="budgetAmount">Monthly Budget ($)</label>
+                    <input type="number" id="budgetAmount" placeholder="Enter your monthly budget" required step="0.01" min="0">
+                </div>
+                <button type="submit" class="btn btn-primary">Set Budget</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2 style="margin-bottom: 1.5rem;">Add Expense</h2>
+            <form id="expenseForm">
+                <div class="form-group">
+                    <label for="expenseName">Expense Name</label>
+                    <input type="text" id="expenseName" placeholder="e.g., Groceries, Rent" required>
+                </div>
+                <div class="form-group">
+                    <label for="expenseAmount">Amount ($)</label>
+                    <input type="number" id="expenseAmount" placeholder="0.00" required step="0.01" min="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="expenseCategory">Category</label>
+                    <select id="expenseCategory" required>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Add Expense</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2 style="margin-bottom: 1.5rem;">Expense History</h2>
+            <ul class="item-list" id="expenseList">
+                <li class="empty-state">
+                    <div class="empty-state-icon">📝</div>
+                    <p>No expenses recorded yet. Start tracking your spending!</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../scripts/budget-tracker.js"></script>
+</body>
+</html>
