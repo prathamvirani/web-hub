@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tracker - Web Hub</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/microsite.css">
+</head>
+<body>
+    <div class="microsite-container">
+        <header class="microsite-header">
+            <a href="../index.html" class="back-button">
+                <span>←</span>
+                <span>Back to Hub</span>
+            </a>
+            <h1 class="microsite-title">📈 Income Tracker</h1>
+            <div style="width: 140px;"></div>
+        </header>
+
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="summary-label">Total Income</div>
+                <div class="summary-value" style="color: var(--success-color);" id="totalIncome">$0</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">This Month</div>
+                <div class="summary-value" id="monthlyIncome">$0</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Income Sources</div>
+                <div class="summary-value" id="incomeCount">0</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="margin-bottom: 1.5rem;">Add Income</h2>
+            <form id="incomeForm">
+                <div class="form-group">
+                    <label for="incomeSource">Income Source</label>
+                    <input type="text" id="incomeSource" placeholder="e.g., Salary, Freelance, Investment" required>
+                </div>
+                <div class="form-group">
+                    <label for="incomeAmount">Amount ($)</label>
+                    <input type="number" id="incomeAmount" placeholder="0.00" required step="0.01" min="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="incomeCategory">Category</label>
+                    <select id="incomeCategory" required>
+                        <option value="Salary">Salary</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Business">Business</option>
+                        <option value="Investment">Investment</option>
+                        <option value="Rental">Rental</option>
+                        <option value="Gift">Gift</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="incomeDate">Date</label>
+                    <input type="date" id="incomeDate" required>
+                </div>
+                <button type="submit" class="btn btn-success">Add Income</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2 style="margin-bottom: 1.5rem;">Income History</h2>
+            <ul class="item-list" id="incomeList">
+                <li class="empty-state">
+                    <div class="empty-state-icon">💵</div>
+                    <p>No income recorded yet. Start tracking your earnings!</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../scripts/income-tracker.js"></script>
+</body>
+</html>
